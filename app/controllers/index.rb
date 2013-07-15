@@ -5,5 +5,11 @@ get '/' do
 end
 
 post '/grandma' do
-  "Implement the /grandma route yourself.<br>Params: <code>#{params.inspect}</code>"
+  convo = params[:user_input]
+  if convo == convo.upcase
+    response = "Whattup"
+  else
+    response = "Speak up, kiddo!"
+  end
+  redirect to("/?grandma=#{response}")
 end
